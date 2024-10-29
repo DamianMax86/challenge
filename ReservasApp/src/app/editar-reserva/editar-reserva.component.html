@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2>Editar Reserva</h2>
+  <form [formGroup]="reservaForm" (ngSubmit)="editarReserva()">
+    <div class="mb-3">
+      <label for="nombreCliente" class="form-label">Nombre</label>
+      <input type="text" id="nombreCliente" class="form-control" formControlName="nombreCliente" [disabled]="true" required>
+
+    </div>
+    
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="date" id="fecha" class="form-control" formControlName="fecha" required>
+      <div *ngIf="reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.invalid" class="text-danger">
+        Fecha es obligatoria.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="hora" class="form-label">Hora</label>
+      <input type="time" id="hora" class="form-control" formControlName="hora" required>
+      <div *ngIf="reservaForm.get('hora')?.touched && reservaForm.get('hora')?.invalid" class="text-danger">
+        Hora es obligatoria.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroPersonas" class="form-label">Número de Personas</label>
+      <input type="number" id="numeroPersonas" class="form-control" formControlName="numeroPersonas" min="1" required>
+      <div *ngIf="reservaForm.get('numeroPersonas')?.touched && reservaForm.get('numeroPersonas')?.invalid" class="text-danger">
+        Número de personas debe ser al menos 1.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <button (click)="cancelar()" type="button" class="btn btn-secondary ms-2">Cancelar Reserva</button>
+    <button (click)="volver()" type="button" class="btn btn-primary ms-2">Volver</button>
+  </form>
+</div>

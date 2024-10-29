@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2 {
+    color: darkblue;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+    
